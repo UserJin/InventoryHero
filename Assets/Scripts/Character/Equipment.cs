@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class Equipment : MonoBehaviour
 {
-    [SerializeField] ItemSlot equipWeaponSlot;
-    [SerializeField] ItemSlot equipArmorSlot;
-    [SerializeField] ItemSlot equipHelmetSlot;
-    [SerializeField] ItemSlot equipSubEquipmentSlot;
-
-    ItemData equipWeapon;
-    ItemData equipArmor;
-    ItemData equipHelmet;
-    ItemData equipSubEquipment;
+    [SerializeField] ItemSlot equipWeapon;
+    [SerializeField] ItemSlot equipArmor;
+    [SerializeField] ItemSlot equipHelmet;
+    [SerializeField] ItemSlot equipSubEquipment;
 
     StatHandler stat;
 
@@ -26,28 +21,24 @@ public class Equipment : MonoBehaviour
         switch (item.Data.equipType)
         {
             case EquipType.Weapon:
-                if(equipWeaponSlot.Data != null)
-                    UnEquip(equipWeaponSlot);
-                equipWeaponSlot = item;
-                equipWeapon = item.Data;
+                if(equipWeapon.Data != null)
+                    UnEquip(equipWeapon);
+                equipWeapon = item;
                 break;
             case EquipType.Armor:
-                if(equipArmorSlot.Data != null)
-                    UnEquip(equipArmorSlot);
-                equipArmorSlot = item;
-                equipArmor = item.Data;
+                if(equipArmor.Data != null)
+                    UnEquip(equipArmor);
+                equipArmor = item;
                 break;
             case EquipType.Helmet:
-                if(equipHelmetSlot.Data != null)
-                    UnEquip(equipHelmetSlot);
-                equipHelmetSlot = item;
-                equipHelmet = item.Data;
+                if(equipHelmet.Data != null)
+                    UnEquip(equipHelmet);
+                equipHelmet = item;
                 break;
             case EquipType.SubEquipment:
-                if(equipSubEquipmentSlot.Data != null)
-                    UnEquip(equipSubEquipmentSlot);
-                equipSubEquipmentSlot = item;
-                equipSubEquipment = item.Data;
+                if(equipSubEquipment.Data != null)
+                    UnEquip(equipSubEquipment);
+                equipSubEquipment = item;
                 break;
         }
         foreach (ItemDataEquip equip in item.Data.equips)
@@ -61,23 +52,19 @@ public class Equipment : MonoBehaviour
         switch (item.Data.equipType)
         {
             case EquipType.Weapon:
-                equipWeaponSlot.isEquip = false;
-                equipWeaponSlot = null;
+                equipWeapon.isEquip = false;
                 equipWeapon = null;
                 break;
             case EquipType.Armor:
-                equipArmorSlot.isEquip = false;
-                equipArmorSlot = null;
+                equipArmor.isEquip = false;
                 equipArmor = null;
                 break;
             case EquipType.Helmet:
-                equipHelmetSlot.isEquip = false;
-                equipHelmetSlot = null;
+                equipHelmet.isEquip = false;
                 equipHelmet = null;
                 break;
             case EquipType.SubEquipment:
-                equipSubEquipmentSlot.isEquip = false;
-                equipSubEquipmentSlot = null;
+                equipSubEquipment.isEquip = false;
                 equipSubEquipment = null;
                 break;
         }

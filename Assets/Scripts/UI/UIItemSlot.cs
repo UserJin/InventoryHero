@@ -43,7 +43,6 @@ public class UIItemSlot : MonoBehaviour
 
     private void ToggleEquip()
     {
-        Debug.Log($"{slot.Data.name}: OnClick");
         if(!slot.isEquip)
         {
             PlayerManager.Instance.Player.inventory.EquipItem(slot);

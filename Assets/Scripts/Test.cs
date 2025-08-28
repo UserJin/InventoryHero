@@ -27,5 +27,9 @@ public class Test : MonoBehaviour
         {
             PlayerManager.Instance.Player.inventory.AddItem(data4);
         }
+        if(Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            PlayerManager.Instance.Player.stat.GetExp(15);
+        }
     }
 }

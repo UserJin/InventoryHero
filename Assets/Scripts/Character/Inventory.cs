@@ -58,21 +58,20 @@ public class Inventory : MonoBehaviour
             inventorySlots.Add(slot);
         }
         // 인벤토리 UI 갱신
-        OnChangeInventory.Invoke();
+        OnChangeInventory?.Invoke();
     }
 
     public void RemoveItem(ItemSlot slot)
     {
         inventorySlots.Remove(slot);
         // 인벤토리 UI 갱신
-        OnChangeInventory.Invoke();
+        OnChangeInventory?.Invoke();
     }
 
     public void EquipItem(ItemSlot slot)
     {
         if(!slot.isEquip)
         {
-            Debug.Log($"{slot.Data.name}: EqupItem");
             player.equipment.Equip(slot);
             slot.isEquip = true;
             // 능력치 UI 갱신(만약 능력치를 같이 볼 수 있다면)
@@ -81,7 +80,7 @@ public class Inventory : MonoBehaviour
         {
             Debug.LogError("장착 실패: 이미 장착된 아이템입니다.");
         }
-        OnChangeInventory.Invoke();
+        OnChangeInventory?.Invoke();
     }
 
     public void UnequipItem(ItemSlot slot)
@@ -96,6 +95,6 @@ public class Inventory : MonoBehaviour
         {
             Debug.LogError("장착 실패: 장착하고 있지 않은 아이템입니다.");
         }
-        OnChangeInventory.Invoke();
+        OnChangeInventory?.Invoke();
     }
 }

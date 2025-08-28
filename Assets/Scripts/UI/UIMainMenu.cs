@@ -76,7 +76,7 @@ public class UIMainMenu : UIBase
 
         levelText.text = $"Lv. {playerStat.CurLevel}";
         expText.text = $"{playerStat.CurExp} / {Game.Common.LevelTable.ExpToLevelUp[playerStat.CurLevel + 1]}";
-        expFill.fillAmount = playerStat.CurExp / Game.Common.LevelTable.ExpToLevelUp[playerStat.CurLevel + 1];
+        expFill.fillAmount = (float)playerStat.CurExp / Game.Common.LevelTable.ExpToLevelUp[playerStat.CurLevel + 1];
         goldText.text = playerStat.CurGold.ToString();
     }
 }

@@ -656,6 +656,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09de6371262c6c347b6a8426ac9d0720, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  equipWeapon:
+    data: {fileID: 0}
+    curCount: 0
+    isEquip: 0
+  equipArmor:
+    data: {fileID: 0}
+    curCount: 0
+    isEquip: 0
+  equipHelmet:
+    data: {fileID: 0}
+    curCount: 0
+    isEquip: 0
+  equipSubEquipment:
+    data: {fileID: 0}
+    curCount: 0
+    isEquip: 0
 --- !u!114 &202924854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5435,7 +5451,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -10, y: -10}
   m_SizeDelta: {x: 400, y: 100}
   m_Pivot: {x: 1, y: 1}
 --- !u!1 &1863077857
