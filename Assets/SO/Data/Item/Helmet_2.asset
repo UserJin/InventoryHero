@@ -10,16 +10,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 62d4ca150e23d274aafee13469498965, type: 3}
-  m_Name: Armor_0
+  m_Name: Helmet_2
   m_EditorClassIdentifier: 
-  displayName: "\uB098\uBB34 \uAC11\uC637"
+  displayName: "\uC131\uAE30\uC0AC\uC758 \uD22C\uAD6C"
   description: 
   type: 0
-  icon: {fileID: 21300000, guid: 541ae020fad5efc48a89a38c6218a601, type: 3}
+  icon: {fileID: 21300000, guid: 6509adb73ba1de04d898264b898cdf2e, type: 3}
   canStack: 0
-  maxStackCount: 1
+  maxStackCount: 0
   consumables: []
-  equipType: 2
+  equipType: 1
   equips:
+  - statusType: 2
+    value: 30
   - statusType: 0
-    value: 80
+    value: 50

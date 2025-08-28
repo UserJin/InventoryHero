@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,26 +26,46 @@ public class UIInventory : UIBase
         backBtn.onClick.AddListener(BackUI);
     }
 
-    public void Init()
-    {
-
-    }
-
     public void UpdateUI()
     {
-        int count = 0;
-        foreach (ItemSlot itemSlot in playerInventory.InventorySlots)
+        if(playerInventory.InventorySlots.Count > uiItemSlots.Count) // 인벤토리 슬롯 수가 더 많으면 그만큼 UI 슬롯 생성 및 추가
         {
-            if(count < uiItemSlots.Count)
+            for(int count = 0;count < playerInventory.InventorySlots.Count;count++)
             {
-                uiItemSlots[count].ClearSlot();
-                uiItemSlots[count].Init(itemSlot);
+                if (count < uiItemSlots.Count)
+                {
+                    uiItemSlots[count].ClearSlot();
+                    uiItemSlots[count].Init(playerInventory.InventorySlots[count]);
+                }
+                else
+                {
+                    AddItemSlot(playerInventory.InventorySlots[count]);
+                }
             }
-            else
+        }
+        else if(playerInventory.InventorySlots.Count < uiItemSlots.Count) // 인벤토리 슬롯 수가 더 적으면 남은 UI 슬롯 제거
+        {
+            for (int count = 0; count < uiItemSlots.Count; count++)
             {
-                AddItemSlot(itemSlot);
+                if (count < playerInventory.InventorySlots.Count)
+                {
+                    uiItemSlots[count].ClearSlot();
+                    uiItemSlots[count].Init(playerInventory.InventorySlots[count]);
+                }
+                else
+                {
+                    Destroy(uiItemSlots[count].gameObject);
+                    uiItemSlots.RemoveAt(count);
+                }
             }
-            count++;
+        }
+        else // 인벤토리 슬롯 수와 UI 슬롯 수가 같으면
+        {
+            for (int i = 0; i < playerInventory.InventorySlots.Count; i++)
+            {
+                uiItemSlots[i].ClearSlot();
+                uiItemSlots[i].Init(playerInventory.InventorySlots[i]);
+            }
         }
     }
 

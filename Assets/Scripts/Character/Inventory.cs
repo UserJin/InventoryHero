@@ -1,9 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[Serializable]
+[System.Serializable]
 public class ItemSlot
 {
     [SerializeField] ItemData data;
@@ -27,7 +26,7 @@ public class Inventory : MonoBehaviour
 
     Player player;
 
-    public Action OnChangeInventory;
+    public System.Action OnChangeInventory;
 
     private void Awake()
     {
@@ -96,5 +95,12 @@ public class Inventory : MonoBehaviour
             Debug.LogError("장착 실패: 장착하고 있지 않은 아이템입니다.");
         }
         OnChangeInventory?.Invoke();
+    }
+
+    public void TestRemoveItem()
+    {
+        if (inventorySlots.Count == 0)
+            return;
+        RemoveItem(inventorySlots[inventorySlots.Count-1]);
     }
 }

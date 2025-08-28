@@ -9,6 +9,8 @@ public class Test : MonoBehaviour
     public ItemData data3;
     public ItemData data4;
 
+    public ItemData[] datas;
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Alpha1))
@@ -30,6 +32,14 @@ public class Test : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Alpha5))
         {
             PlayerManager.Instance.Player.stat.GetExp(15);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            PlayerManager.Instance.Player.inventory.AddItem(datas[Random.Range(0, datas.Length)]);
+        }
+        if(Input.GetKeyDown(KeyCode.Alpha7))
+        {
+            PlayerManager.Instance.Player.inventory.TestRemoveItem();
         }
     }
 }
