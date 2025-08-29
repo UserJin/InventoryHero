@@ -30,7 +30,6 @@ public class Inventory : MonoBehaviour
 
     private void Awake()
     {
-        //inventorySlots = new List<ItemSlot>();
         player = GetComponent<Player>();
     }
 
@@ -62,6 +61,12 @@ public class Inventory : MonoBehaviour
 
     public void RemoveItem(ItemSlot slot)
     {
+        // 장착한 아이템이라면 장착해제 후 제거
+        if(slot.isEquip)
+        {
+            player.equipment.UnEquip(slot);
+            slot.isEquip = false;
+        }
         inventorySlots.Remove(slot);
         // 인벤토리 UI 갱신
         OnChangeInventory?.Invoke();

@@ -72,6 +72,12 @@ public class StatHandler : MonoBehaviour
         OnStatChange?.Invoke();
         CheckLevelUp();
     }
+    
+    public void GetGold(int amount)
+    {
+        curGold += amount;
+        OnStatChange?.Invoke();
+    }
 
     /// <summary>
     /// 장착한 아이템의 능력치를 적용함

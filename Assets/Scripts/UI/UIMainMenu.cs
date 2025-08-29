@@ -28,7 +28,7 @@ public class UIMainMenu : UIBase
         inventoryBtn.onClick.AddListener(ShowInventoryUI);
 
         playerStat = PlayerManager.Instance.Player.stat;
-        PlayerManager.Instance.Player.stat.OnStatChange += UpdateUI;
+        playerStat.OnStatChange += UpdateUI;
 
         UpdateUI();
     }
